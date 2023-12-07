@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Phoenix Bakery</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sans-serif', sans-serif;
+        }
+
+     .banner {
+          width: 100%;
+          height: 100vh;
+          background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("background.jpg");
+          background-size: cover;
+          background-position: center;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+
+        .navbar {
+            width: 85%;
+            margin: 20px;
+            padding: 35px 0;
+            display: flex;
+            justify-content: space between;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-bottom: 2px solid rgb(153, 34, 198);
+        }
+
+        .logo {
+            width: 120px;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: top;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Robot-Black', sans-serif;
+            position: relative;
+            padding: 10px 20px;
+            background-color: transparent;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: background-color 0.3s, height 0.5s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgb(153, 34, 198);
+            height: 100%;
+        }
+
+        .centered-text {
+            text-align: center;
+            font-family: 'Sans-serif', sans-serif;
+        }
+
+        .logo-and-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-left: 10px;
+            color: rgb(153, 34, 198);
+            font-family: 'Sedgwick Ave Display', cursive;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .contact-info {
+            text-align: center;
+            color: #fff;
+            font-family: 'Sans-serif', sans-serif;
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+        .content-box {
+            background: rgba(192, 192, 192, 0.7);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .content-image {
+            background: url("middleimg.jpg") center/cover;
+            flex: 1;
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        .content-text {
+            flex: 2;
+            color: #000;
+        }
+
+        .content-text h1,
+        .content-text p {
+            text-align: left;
+            margin: 0;
+        }
+
+        .content-text p {
+            padding-left: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #fff;
+            font-family: 'Robot-Black', sans-serif;
+            text-decoration: none;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: rgb(153, 34, 198);
+        }
+
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: solid;
+            color: rgb(153, 34, 198);
+            font-family: 'Robot-Black', sans-serif;
+            text-decoration: none;
+            border: 1px solid rgb(153, 34, 198);
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background-color: rgb(153, 34, 198);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo-and-title">
+                <img src="logo.png" class="logo">
+                <h1 class="title">Phoenix Bakery And Restaurants</h1>
+            </div>
+            <ul>
+                <li><a href="#" onclick="showBookPopup()">Book Now</a></li>
+                <li><a href="#"onclick="showOffersPopup()">Offers</a></li>
+                <li><a href="#" onclick="showAboutPopup()">About Us</a></li>
+                <li><a href="#" onclick="showContactPopup()">Contact Us</a></li>
+     
+            </ul>
+        </div>
+        <div class="content-box">
+            <div class="content-image"></div>
+            <div class="content-text">
+                <h1 style="font-size: 50px;">Welcome To Phoenix Bakeries And Restaurants</h1>
+                <p class="centered-text bold-text">Get a World Class Food Experience With Us !</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <a href="#" class="button" onclick="showLoginBox()">Sign In</a>
+            <a href="#" class="button"onclick="showOrderNowPopup()">Order Now</a>
+        </div>         
+    </div>
+    <div>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xPPLbEFbCAo?si=MspuqV0ugcrAJ3K-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </center>
+    </div>
+
+    <div class="popup" id="bookNowPopup">
+        <div class="popup-content">
+            <h2>Book Your Table</h2>
+            <p>Make a reservation and experience the finest dining at Phoenix Bakery and Restaurants. We are here to serve you and create memorable moments.</p>
+            <form>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
+                <button type="submit">Book Now</button>
+            </form>
+            <button onclick="hideBookPopup()">Close</button>
+        </div>
+    </div>
+
+    <div class="popup" id="offersPopup">
+        <div class="popup-content">
+            <h2>Special Offers!</h2>
+            <p>Our latest special offers:</p>
+            <ul>
+                <li>Happy Hour: Join us from 4 PM to 6 PM for discounted drinks and appetizers.</li>
+                <li>Weekend Offer: Enjoy a delightful dinner menu every Saturday and Sunday from 7 AM to 10 PM.</li>
+                <li>Family Special: Buy one adult meal and get a kids' meal free on Fridays.</li>
+                <li>Anniversary Celebrations: We have special packages for your special day.</li>
+            </ul>
+            <p>Don't miss out on these amazing offers!</p>
+            <button onclick="hideOffersPopup()">Close</button>
+        </div>
+    </div>
+    
+    
+
+    <div class="popup" id="aboutPopup">
+        <div class="popup-content">
+            <h2>About Phoenix Bakeries and Restaurant</h2>
+            <p>Welcome to Phoenix Bakeries and Restaurant, where the magic of taste and tradition come together to
+                create an unforgettable dining experience.</p>
+            <p>At Phoenix, we believe in the power of fresh, quality ingredients and time-honored recipes passed down
+                through generations. Our story began in the heart of the city, where a passionate baker and a culinary
+                enthusiast joined forces to bring you a delightful fusion of baked goods and exquisite cuisine.</p>
+            <button onclick="hideAboutPopup()">Close</button>
+        </div>
+    </div>
+
+    <div class="popup" id="loginBox">
+        <div class="popup-content">
+            <h2>Login</h2>
+            <input type="text" class="login-input" placeholder="Email">
+            <input type="password" class="login-input" placeholder="Password">
+            <button onclick="hideLoginBox()">Close</button>
+        </div>
+    </div>
+    <div class="popup" id="orderNowPopup">
+        <div class="popup-content">
+            <h2>Order Now</h2>
+            <p> Order online now and have your favorite meals delivered to your doorstep!</p>
+            <ul>
+                <li>Browse and refer the our menu.</li>
+                <li>Customize your oder for your choices.</li>
+                <li>Add your delivery details and payment methods.</li>
+                <li>Keep clam and quite from the home we delivery your foods soon!.</li>
+            </ul>
+            <p>Experience the our meals with our family!</p>
+            <button onclick="hideOrderNowPopup()">Close</button>
+        </div>
+    </div>
+    
+
+    <div class="popup" id="contactPopup">
+    <div class="popup-content">
+        <h2>Contact Us</h2>
+        <p>Phone: 037 5643578</p>
+        <p>Email: <a href="mailto:phoenixbakery@gmail.com">phoenixbakery@gmail.com</a></p>
+        <button onclick="hideContactPopup()">Close</button>
+    </div>
+    </div>
+
+    <script>
+        function showLoginBox() {
+            document.getElementById("loginBox").style.display = "flex";
+        }
+
+        function hideLoginBox() {
+            document.getElementById("loginBox").style.display = "none";
+        }
+
+        function showOrderNowPopup() {
+            document.getElementById("orderNowPopup").style.display = "flex";
+        }
+
+        function hideOrderNowPopup() {
+            document.getElementById("orderNowPopup").style.display = "none";
+        }
+
+
+        function showBookPopup() {
+            document.getElementById("bookNowPopup").style.display = "flex";
+       }
+
+        function hideBookPopup() {
+            document.getElementById("bookNowPopup").style.display = "none";
+       } 
+       function showOffersPopup() {
+            document.getElementById("offersPopup").style.display = "flex";
+       }
+
+        function hideOffersPopup() {
+            document.getElementById("offersPopup").style.display = "none";
+       } 
+
+
+        function showAboutPopup() {
+            document.getElementById("aboutPopup").style.display = "flex";
+        }
+
+        function hideAboutPopup() {
+            document.getElementById("aboutPopup").style.display = "none";
+        }
+
+        function showContactPopup() {
+            document.getElementById("contactPopup").style.display = "flex";
+        }
+
+        function hideContactPopup() {
+            document.getElementById("contactPopup").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
